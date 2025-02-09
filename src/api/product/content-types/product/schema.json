@@ -36,15 +36,24 @@
     "featured": {
       "type": "boolean"
     },
-    "category": {
-      "type": "enumeration",
-      "enum": [
-        "Clock",
-        "Wall art",
-        "Cushions & Throws",
-        "Decor item"
-      ],
-      "default": "Decor item"
+    "product_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product-category.product-category"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "stock_quantity": {
+      "type": "integer"
     }
   }
 }

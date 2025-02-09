@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "carts",
+  "collectionName": "wishlists",
   "info": {
-    "singularName": "cart",
-    "pluralName": "carts",
-    "displayName": "Cart",
+    "singularName": "wishlist",
+    "pluralName": "wishlists",
+    "displayName": "Wishlist",
     "description": ""
   },
   "options": {
@@ -22,12 +22,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product"
-    },
-    "quantity": {
-      "type": "integer"
-    },
-    "price": {
-      "type": "decimal"
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "carts",
+  "collectionName": "contact_informations",
   "info": {
-    "singularName": "cart",
-    "pluralName": "carts",
-    "displayName": "Cart",
+    "singularName": "contact-information",
+    "pluralName": "contact-informations",
+    "displayName": "Contact information",
     "description": ""
   },
   "options": {
@@ -18,16 +18,14 @@
     "email": {
       "type": "email"
     },
-    "products": {
+    "phone": {
+      "type": "biginteger"
+    },
+    "orders": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::product.product"
-    },
-    "quantity": {
-      "type": "integer"
-    },
-    "price": {
-      "type": "decimal"
+      "target": "api::order.order",
+      "mappedBy": "contact_information"
     }
   }
 }
