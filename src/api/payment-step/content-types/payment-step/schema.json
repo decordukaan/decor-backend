@@ -17,7 +17,9 @@
       "enum": [
         "Credit Card",
         "Debit Card",
-        "UPI"
+        "UPI",
+        "razor_pay",
+        "cod"
       ]
     },
     "transaction_id": {

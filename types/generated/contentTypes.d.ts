@@ -697,13 +697,47 @@ export interface ApiCartCart extends Schema.CollectionType {
       'api::product.product'
     >;
     quantity: Attribute.Integer;
-    price: Attribute.Decimal;
+    price: Attribute.Decimal & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::cart.cart', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::cart.cart', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiContactFormContactForm extends Schema.CollectionType {
+  collectionName: 'contact_forms';
+  info: {
+    singularName: 'contact-form';
+    pluralName: 'contact-forms';
+    displayName: 'Contact-form';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.Email;
+    phone: Attribute.BigInteger;
+    message: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-form.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-form.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -776,6 +810,19 @@ export interface ApiOrderOrder extends Schema.CollectionType {
       'api::payment-step.payment-step'
     >;
     total_price: Attribute.BigInteger;
+    email: Attribute.Email;
+    order_status: Attribute.Enumeration<
+      [
+        'unfulfilled',
+        'pending',
+        'authorized',
+        'partially_fulfilled',
+        'fulfilled',
+        'cancelled',
+        'refunded',
+        'abandoned'
+      ]
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -806,7 +853,9 @@ export interface ApiPaymentStepPaymentStep extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    payment_method: Attribute.Enumeration<['Credit Card', 'Debit Card', 'UPI']>;
+    payment_method: Attribute.Enumeration<
+      ['Credit Card', 'Debit Card', 'UPI', 'razor_pay', 'cod']
+    >;
     transaction_id: Attribute.String;
     status: Attribute.Enumeration<['Pending', 'Completed', 'Failed']>;
     email: Attribute.Email;
@@ -1000,6 +1049,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::cart.cart': ApiCartCart;
+      'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::contact-information.contact-information': ApiContactInformationContactInformation;
       'api::order.order': ApiOrderOrder;
       'api::payment-step.payment-step': ApiPaymentStepPaymentStep;

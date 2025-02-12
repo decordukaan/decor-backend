@@ -27,7 +27,8 @@
       "type": "integer"
     },
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "required": true
     }
   }
 }

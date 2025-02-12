@@ -36,6 +36,22 @@
     },
     "total_price": {
       "type": "biginteger"
+    },
+    "email": {
+      "type": "email"
+    },
+    "order_status": {
+      "type": "enumeration",
+      "enum": [
+        "unfulfilled",
+        "pending",
+        "authorized",
+        "partially_fulfilled",
+        "fulfilled",
+        "cancelled",
+        "refunded",
+        "abandoned"
+      ]
     }
   }
 }
