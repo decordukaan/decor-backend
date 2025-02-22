@@ -713,7 +713,7 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
   info: {
     singularName: 'contact-form';
     pluralName: 'contact-forms';
-    displayName: 'Contact-form';
+    displayName: 'Contact form';
     description: '';
   };
   options: {
@@ -901,6 +901,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     >;
     images: Attribute.Media;
     stock_quantity: Attribute.Integer;
+    cover: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
