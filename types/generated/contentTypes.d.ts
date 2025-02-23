@@ -902,6 +902,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
     images: Attribute.Media;
     stock_quantity: Attribute.Integer;
     cover: Attribute.Media;
+    sale: Attribute.Boolean & Attribute.DefaultTo<true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
