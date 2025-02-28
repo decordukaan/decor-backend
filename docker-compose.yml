@@ -6,5 +6,5 @@ services:
     volumes:
       - ./:/usr/src/app
     ports:
-      - "1337:1337"
+      - "1338:1337"
     command: npm start
