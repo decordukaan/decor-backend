@@ -1,9 +1,9 @@
-version: "3.8"
-
 services:
   next-app:
     container_name: next-app
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "3001:3001"
     environment:
