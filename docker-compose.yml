@@ -1,14 +1,14 @@
-version: "3.3"
+version: "3.8"
+
 services:
-  strapi:
-    image: node:18
-    working_dir: /usr/src/app
-    volumes:
-      - ./:/usr/src/app
+  next-app:
+    container_name: next-app
+    build: .
     ports:
-      - "1337:1337" # Ensure the correct port mapping
+      - "3001:3001"
     environment:
-      HOST: "0.0.0.0"
-      PORT: "1337"
-      URL: "http://147.93.97.188:1337"
-    command: sh -c "npm install && npm start"
+      - NODE_ENV=production
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: ["npm", "run", "start"]
