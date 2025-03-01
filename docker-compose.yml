@@ -6,9 +6,9 @@ services:
     volumes:
       - ./:/usr/src/app
     ports:
-      - "1338:1337" # Ensure the correct port mapping
+      - "1337:1337" # Ensure the correct port mapping
     environment:
       HOST: "0.0.0.0"
       PORT: "1337"
-      URL: "http://147.93.97.188:1338"
+      URL: "http://147.93.97.188:1337"
     command: sh -c "npm install && npm start"
